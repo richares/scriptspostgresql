@@ -1,0 +1,2 @@
+# scriptspostgresql
+Bash, postgresql
