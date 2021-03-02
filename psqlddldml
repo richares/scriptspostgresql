@@ -1,0 +1,31 @@
+#! bin/bash
+
+databasename="rubato"
+
+funcddl (){
+        allddl=()
+        while IFS=  read -r -d $'\0'; do
+           allddl+=("$REPLY")
+        done < <(find . -name "*.ddl" -print0)
+
+        for line in "${allddl[@]}"
+        do
+        psql ${databasename} -c "\i ${line}"
+        done
+}
+
+funcdml (){
+ 	alldml=()
+	while IFS=  read -r -d $'\0'; do
+ 	   alldml+=("$REPLY")
+	done < <(find . -name "*.dml" -print0)
+
+        for line in "${alldml[@]}"
+	do
+	psql ${databasename} -c "\i ${line}"
+	done
+}
+
+
+funcddl
+funcdml
