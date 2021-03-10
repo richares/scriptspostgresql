@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION public.schooladd(school character varying)
+ RETURNS void
+ LANGUAGE plpgsql
+AS $function$
+BEGIN
+    INSERT INTO licensees (short_name) VALUES
+    (school);
+END
+$function$

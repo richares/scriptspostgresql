@@ -1,0 +1,9 @@
+CREATE OR REPLACE PROCEDURE public.szkoladodanie(szkola character varying)
+ LANGUAGE plpgsql
+AS $procedure$
+BEGIN
+INSERT INTO licensees (short_name) VALUES
+(szkola);
+END
+$procedure$
+
